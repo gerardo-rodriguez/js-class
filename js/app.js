@@ -1,30 +1,53 @@
-function AppController(age) {
-	var _self = this;
+/**
+ * @class ClassExample A basic class example.
+ *
+ * @author Gerardo Rodriguez - ger.rod34@gmail.com
+ * @created 04/24/2012
+ */
+function ClassExample(age) {
 	
-	// Private class properties
+	var _self = this; // A reference to use within the class methods
+	//-------------------------------------------------
+	// Private Properties
+	//-------------------------------------------------
 	var _privateProperty = 'privateProperty';
 	var _age = age;
-	
-	// private method, constructor
+	//-------------------------------------------------
+	// Faux Constructor
+	//-------------------------------------------------
+	/**
+	 * @private _init() Our class constructor.
+	 */
 	_init = function() {
-		// console.log("self.privateProperty: " + self.privateProperty);
 		console.log("_privateProperty: " + _privateProperty);
 		console.log("_age: " + _age);
-		// console.log("self.age: " + self.age);
 	}
-	
-	// Public method
+	//-------------------------------------------------
+	// Public Methods
+	//-------------------------------------------------
+	/**
+	 * @public Pulic method.
+	 */
 	this.publicMethod = function() {
 		console.log('publicMethod');
 		_privateMethod('called from publicMethod');
 	}
-	
-	// Private method
+	//-------------------------------------------------
+	// Private Methods
+	//-------------------------------------------------
+	/**
+	 * @private Private method.
+	 */
 	_privateMethod = function(thought) {
 		console.log('_privateMethod: ' + thought);
 	}
+	//-------------------------------------------------
+	// Event Handlers
+	//-------------------------------------------------
 	
-	// Getters
+	//-------------------------------------------------
+	// Getters/Setters
+	//-------------------------------------------------
 	this.getPrivateProperty = function() {
 		return _privateProperty;
 	}
@@ -32,18 +55,21 @@ function AppController(age) {
 	this.getAge = function() {
 		return _age;
 	}
-	
-	// Setters
+
 	this.setAge = function(newAge) {
 		_age = newAge;
 	}
-	
-	// call our constructor, private init method
+	//-------------------------------------------------
+	// Faux Constructor Init
+	//-------------------------------------------------
+	/**
+	 * We need to call our faux constructor, since it won't actually run by itself.
+	 */
 	_init();
 }
 
-
-var controller = new AppController(7);
+// Let's instanciate our class.
+var controller = new ClassExample(7);
 controller.publicMethod();
 // controller._privateMethod('from instance');
 // console.log( "controller.privateProperty: " + controller.privateProperty );
